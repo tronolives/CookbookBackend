@@ -18,14 +18,13 @@ public class UserController {
     }
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewUser(@RequestParam String email,
-                                           @RequestParam String username,
-                                           @RequestParam String password){
-        User n = new User();
+    public @ResponseBody String addNewUser(@RequestBody User user){
+        //we can definitely skip this in favor of sending a user object and parsing it automatically
+        /*User n = new User();
         n.setEmail(email);
         n.setUsername(username);
-        n.setPassword(password);
-        userRepository.save(n);
+        n.setPassword(password);*/
+        userRepository.save(user);
         return "Saved";
     }
 
