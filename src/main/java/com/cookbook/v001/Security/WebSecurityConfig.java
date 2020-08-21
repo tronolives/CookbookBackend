@@ -18,18 +18,22 @@ import java.util.Arrays;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
+
+    public WebSecurityConfig(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .cors().and()
                 .authorizeRequests()
+                .antMatchers("/login").permitAll()
                 .anyRequest()
-                .authenticated()
-                .and().httpBasic()
-                .and().csrf().disable();
+                .authenticated().and()
+                .httpBasic().and()
+                .csrf().disable();
     }
 
     @Override
