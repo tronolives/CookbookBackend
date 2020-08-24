@@ -1,4 +1,4 @@
-package com.cookbook.v001.Util;
+package com.cookbook.v001.Security.Util;
 
 import com.cookbook.v001.Entities.User;
 import io.jsonwebtoken.Claims;
