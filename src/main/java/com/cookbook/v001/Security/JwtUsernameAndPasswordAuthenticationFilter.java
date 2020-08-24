@@ -47,7 +47,6 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
                                             FilterChain chain, Authentication authResult)
             throws IOException, ServletException {
-        jwtUtil.to
-        response.addHeader("Authorization", "Bearer " + token);
+        response.addHeader("Authorization", "Bearer ");
     }
 }
