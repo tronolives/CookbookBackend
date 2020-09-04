@@ -17,17 +17,6 @@ public class UserController {
         this.userRepository = UserRepository;
     }
 
-    @PostMapping(path="/add")
-    public @ResponseBody String addNewUser(@RequestBody User user){
-        //we can definitely skip this in favor of sending a user object and parsing it automatically
-        /*User n = new User();
-        n.setEmail(email);
-        n.setUsername(username);
-        n.setPassword(password);*/
-        userRepository.save(user);
-        return "Saved";
-    }
-
     @GetMapping(path="/all")
     public @ResponseBody Iterable<User> getAllUsers(){
         return userRepository.findAll();
