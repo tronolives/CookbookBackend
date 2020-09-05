@@ -61,6 +61,7 @@ public class AuthenticationController {
 
         if(!userService.userExists(registrationRequest.getUsername())){
             User newUser = new User();
+            newUser.setName(registrationRequest.getName());
             newUser.setEmail(registrationRequest.getEmail());
             newUser.setUsername(registrationRequest.getUsername());
             newUser.setPassword(registrationRequest.getPassword());

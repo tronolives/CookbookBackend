@@ -15,7 +15,7 @@ public class UserService {
 
     public Boolean userExists(String username) {
         User requestedUser = userRepository.findByUsername(username);
-        return requestedUser == null;
+        return requestedUser != null;
     }
 
     public User saveUser(User user){
